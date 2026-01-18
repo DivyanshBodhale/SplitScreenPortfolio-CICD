@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'x'} 
+  agent { label 'olex'} 
     stages {
         stage("Code Clone ") {
             steps {
@@ -12,16 +12,23 @@ pipeline {
                 echo"This stage will test the code quality"
             } 
         }
-        stage("Build") {
+        stage("Push To DockerHub") {
             steps {
                 echo"image Building stated"
-                sh"docker build -t split-portfolio ."
+                withCredentials([usernamePassword(
+                    'credentialsId':'DockerHubCred',
+                    'passwordVariable':'DockerHubPass',
+                    'usernameVariable':'DockerHubUser')]){
+                sh "docker login -u ${env.DockerHubUser} -p ${env.DockerHubPass} "
+                sh "docker image tag split-portfolio ${env.DockerHubUser}/split-portfolio:latest"
+                sh "docker push ${env.DockerHubUser}/split-portfolio:latest"
+                }
             } 
         }
         stage("Deployement") {
             steps {
                 echo "this will deploye the code"
-                sh"docker run -d -p 8081:80 --name split-portfolio-app split-portfolio"
+                sh"docker compose up -d"
             } 
         }
     }
