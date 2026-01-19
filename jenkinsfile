@@ -9,6 +9,7 @@ pipeline {
         }
         stage("test") {
             steps {
+                 echo "test Commit"
                 echo"This stage will test the code quality"
             } 
         }
