@@ -29,6 +29,7 @@ pipeline {
             steps {
                 echo "this will deploye the code"
                 sh"docker compose up -d"
+                echo "checking for test"
             } 
         }
     }
