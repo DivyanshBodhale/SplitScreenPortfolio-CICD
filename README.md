@@ -38,4 +38,4 @@ Ensured consistent, repeatable builds
 
 Enabled faster and safer application releases
 
-Tech Stack: Jenkins | GitHub | Docker | Docker Hub | Docker Compose | Linux | CI/CD | 
+Tech Stack: Jenkins | GitHub | Docker | Docker Hub | Docker Compose | Linux | CI/CD |
