@@ -39,3 +39,7 @@ Ensured consistent, repeatable builds
 Enabled faster and safer application releases
 
 Tech Stack: Jenkins | GitHub | Docker | Docker Hub | Docker Compose | Linux | CI/CD |
+
+# CICD Flow 
+<img width="1536" height="899" alt="CICD Pipelie  Flow1" src="https://github.com/user-attachments/assets/f9c0cc20-9f4f-4789-aee7-215291993373" />
+
